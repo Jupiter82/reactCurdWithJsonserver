@@ -1,0 +1,29 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "a title",
+      "email": "jupiter"
+    },
+    {
+      "id": "2",
+      "name": "another title",
+      "email": "ram"
+    },
+    {
+      "id": "3",
+      "name": "गाउँ कार्यपालिकाको  कार्यालय",
+      "email": "adhishraj@networkassociates.com.np"
+    },
+    {
+      "id": "4",
+      "name": "गाउँ कार्यपालिकाको कार्यलय",
+      "email": "adhishraj@networkassociates.com.np"
+    },
+    {
+      "id": "5",
+      "name": "roshan",
+      "email": "adhishraj@networkassociates.com.np"
+    }
+  ]
+}
