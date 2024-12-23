@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Edit() {
   const { id } = useParams();
   const [data, setData] = useState({ id: "", name: "", email: "" });
+  const navigate = useNavigate()
   useEffect(() => {
     const fetcheData = async () => {
       try {
@@ -22,6 +23,7 @@ function Edit() {
     try {
       await axios.put(`http://localhost:3000/user/${id}`, data);
       alert("Data updated successfully!");
+      navigate("/")
     } catch (error) {
       console.error("Error updating data:", error);
     }

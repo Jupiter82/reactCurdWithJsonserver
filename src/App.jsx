@@ -1,11 +1,13 @@
 import axios from "axios";
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
+  const navigate = useNavigate()
+
   console.log(users);
 
   useEffect(() => {
@@ -19,6 +21,21 @@ function App() {
     };
     fetcheData();
   }, []);
+
+  const handleDelete = async (id) => {
+    const conf = window.confirm("Do you want to delete");
+    if (conf) {
+      try {
+        const response = await axios.delete("http://localhost:3000/user/" + id);
+        console.log(response)
+        alert("User Deleted successfully")
+        setUsers((prevUsers) => prevUsers.filter((client) => client.id !== id))
+        navigate("/")
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  }
   return (
     <div className=" text-center">
       <div className="w-[80rem] flex justify-end mt-2">
@@ -32,6 +49,7 @@ function App() {
           </button>
         </Link>
       </div>
+      {error && <div className="text-red-500">{error}</div>}
       <table className="border-2 w-[80rem] mx-auto px-4">
         <thead className="border-2">
           <tr className="border-s-2">
@@ -58,15 +76,11 @@ function App() {
                       Edit
                     </button>
                   </Link>
-                  <Link to="/delete">
-                    {" "}
-                    <button
-                      type="button"
-                      className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-xs px-3 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                    >
-                      Delete
-                    </button>
-                  </Link>
+                  <button onClick={e => handleDelete(user.id)}
+                    className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-xs px-3 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             );
@@ -75,6 +89,7 @@ function App() {
       </table>
     </div>
   );
+
 }
 
 export default App;
