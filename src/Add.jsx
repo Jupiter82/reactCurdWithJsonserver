@@ -18,7 +18,7 @@ function Add() {
 
       axios.post("http://localhost:3000/user", newData);
       alert("Data Added Successfully!");
-      navigate("/");
+      navigate("/detail");
     } catch (error) {
       console.log(error);
     }

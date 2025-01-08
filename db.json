@@ -6,9 +6,22 @@
       "email": "jupiterbade@gmail.com"
     },
     {
-      "id": "3",
-      "name": "ram",
-      "email": "ram@gmail.com"
+      "id": "2",
+      "name": "tester",
+      "email": "tester@gmail.com"
     }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "MSI Pulse",
+      "brand": "MSI",
+      "category": "Computers",
+      "price": 900,
+      "description": "MSI Pulse GL66",
+      "imageFilename": "download.jpg",
+      "createdAt": "2023-17"
+    },
+    {}
   ]
 }

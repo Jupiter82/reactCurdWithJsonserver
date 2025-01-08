@@ -23,7 +23,7 @@ function Edit() {
     try {
       await axios.put(`http://localhost:3000/user/${id}`, data);
       alert("Data updated successfully!");
-      navigate("/")
+      navigate("/detail")
     } catch (error) {
       console.error("Error updating data:", error);
     }
