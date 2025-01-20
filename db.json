@@ -13,7 +13,7 @@
   ],
   "product": [
     {
-      "id": 1,
+      "id": "1",
       "name": "MSI Pulse",
       "brand": "MSI",
       "category": "Computers",
@@ -21,7 +21,6 @@
       "description": "MSI Pulse GL66",
       "imageFilename": "download.jpg",
       "createdAt": "2023-17"
-    },
-    {}
+    }
   ]
 }
