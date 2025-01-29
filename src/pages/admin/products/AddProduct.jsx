@@ -3,51 +3,71 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Add() {
-    const [inputData, setInputData] = useState({ name: "", email: "" });
-
+    const [inputData, setInputData] = useState({ name: "", brand: "", category: "", price: "", description: "", imageFilename: "", createdAt: "" });
     const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.get("http://localhost:3000/user");
-            const user = response.data;
+            const response = await axios.get("http://localhost:3000/product");
+            const product = response.data;
 
             const newId =
-                user.length > 0 ? (Math.max(...user.map((u) => u.id)) + 1).toString() : 1;
+                product.length > 0 ? (Math.max(...product.map((u) => u.id)) + 1).toString() : 1;
             const newData = { ...inputData, id: newId };
 
-            axios.post("http://localhost:3000/user", newData);
+            axios.post("http://localhost:3000/product", newData);
             alert("Data Added Successfully!");
-            navigate("/detail");
+            navigate("/product");
         } catch (error) {
             console.log(error);
         }
     };
     return (
-        <div className="flex w-full h-80 justify-center items-center ">
+        <div className="flex w-full h-80 justify-center items-center mt-6">
             <form onSubmit={handleSubmit}>
-                <div className="w-80 h-52 border-1 bg-gray-300 p-5 flex flex-col justify-between">
+                <div className="w-80 h-96 border-1 bg-gray-300 p-5 flex flex-col justify-between">
                     <div className="flex flex-col">
                         <label htmlFor="name">Name:</label>
                         <input
+                            id="name"
                             type="text"
                             value={inputData.name}
-                            name="name"
-                            onChange={(e) =>
+                            onChange={(e) => {
                                 setInputData({ ...inputData, name: e.target.value })
+                            }
                             }
                         />
                     </div>
                     <div className="flex flex-col">
-                        <label htmlFor="email">Email:</label>
+                        <label htmlFor="brand">Brand:</label>
                         <input
+                            id="brand"
                             type="text"
-                            value={inputData.email}
-                            name="email"
+                            value={inputData.brand}
                             onChange={(e) =>
-                                setInputData({ ...inputData, email: e.target.value })
+                                setInputData({ ...inputData, brand: e.target.value })
                             }
                         />
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="category">Category:</label>
+                        <input id="brand" type="text" value={inputData.category} onChange={(e) => setInputData({ ...inputData, category: e.target.value })}  ></input>
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="price">Price:</label>
+                        <input id="price" type="number" value={inputData.price} onChange={(e) => setInputData({ ...inputData, price: e.target.value })}></input>
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="desciption">Description:</label>
+                        <input id="description" type="text" value={inputData.description} onChange={(e) => setInputData({ ...inputData, description: e.target.value })}></input>
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="imageFilename">ImageFile:</label>
+                        <input id="imageFilename" type="file" value={inputData.imageFilename} onChange={(e) => { console.log(e.target.files[0].name); setInputData({ ...inputData, imageFilename: e.target.files[0] }) }} ></input>
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="createdAt">Create Date</label>
+                        <input id="createdAt" type="date" value={inputData.imageFilename} onChange={(e) => setInputData({ ...inputData, createdAt: e.target.value })}></input>
                     </div>
                     <div className="flex justify-center">
                         <button
