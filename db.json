@@ -21,6 +21,36 @@
       "description": "MSI Pulse GL66",
       "imageFilename": "download.jpg",
       "createdAt": "2023-17"
+    },
+    {
+      "id": "2",
+      "name": "asd",
+      "brand": "asdas",
+      "category": "dasda",
+      "price": "1212",
+      "description": "qweqw",
+      "imageFilename": "download2.jpg",
+      "createdAt": ""
+    },
+    {
+      "id": "3",
+      "name": "asdas",
+      "brand": "dasd",
+      "category": "asdas",
+      "price": "3121",
+      "description": "asdas",
+      "imageFilename": "download3.jpg",
+      "createdAt": ""
+    },
+    {
+      "id": "4",
+      "name": "Adhish Raj Karki",
+      "brand": "asdas",
+      "category": "asdasd",
+      "price": "12121",
+      "description": "asdasd",
+      "imageFilename": "C:\\fakepath\\download3.jpg",
+      "createdAt": "2025-01-30"
     }
   ]
 }

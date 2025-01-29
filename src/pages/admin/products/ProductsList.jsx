@@ -30,7 +30,7 @@ function ProductsList() {
                 console.log(response)
                 alert("User Deleted successfully")
                 setProduct((prevUsers) => prevUsers.filter((client) => client.id !== id))
-                navigate("/detail")
+                navigate("/product")
             } catch (error) {
                 console.error(error)
             }
