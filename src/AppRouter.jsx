@@ -6,6 +6,7 @@ import Edit from "./Edit";
 import Details from "./Details";
 import Products from "./pages/admin/products/ProductsList";
 import AddProducts from "./pages/admin/products/AddProduct";
+import EditProduct from "./pages/admin/products/EditProduct";
 
 function AppRouter() {
   return (
@@ -17,7 +18,7 @@ function AppRouter() {
         <Route path="edit/:id" element={<Edit />} />
         <Route path="/product" element={<Products />} />
         <Route path="/createProduct" element={<AddProducts />} />
-        {/* <Route path="edit/:id" element={<Edit />} /> */}
+        <Route path="editProduct/:id" element={<EditProduct />} />
       </Routes>
     </BrowserRouter>
   );

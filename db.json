@@ -13,16 +13,6 @@
   ],
   "product": [
     {
-      "id": "1",
-      "name": "MSI Pulse",
-      "brand": "MSI",
-      "category": "Computers",
-      "price": 900,
-      "description": "MSI Pulse GL66",
-      "imageFilename": "download.jpg",
-      "createdAt": "2023-17"
-    },
-    {
       "id": "2",
       "name": "asd",
       "brand": "asdas",
@@ -30,27 +20,27 @@
       "price": "1212",
       "description": "qweqw",
       "imageFilename": "download2.jpg",
-      "createdAt": ""
+      "createdAt": "2025-02-26"
     },
     {
       "id": "3",
-      "name": "asdas",
-      "brand": "dasd",
-      "category": "asdas",
-      "price": "3121",
-      "description": "asdas",
+      "name": "गाउँ कार्यपालिकाको कार्यलय",
+      "brand": "new",
+      "category": "xcvxc",
+      "price": "3",
+      "description": "test",
       "imageFilename": "download3.jpg",
-      "createdAt": ""
+      "createdAt": "2025-02-25"
     },
     {
       "id": "4",
       "name": "Adhish Raj Karki",
-      "brand": "asdas",
-      "category": "asdasd",
-      "price": "12121",
-      "description": "asdasd",
-      "imageFilename": "C:\\fakepath\\download3.jpg",
-      "createdAt": "2025-01-30"
+      "brand": "new",
+      "category": "xcvxc",
+      "price": "4",
+      "description": "test",
+      "imageFilename": "download.jpg",
+      "createdAt": "2025-02-28"
     }
   ]
 }
