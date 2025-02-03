@@ -8,8 +8,6 @@ function ProductsList() {
     const [error, setError] = useState(null);
     const navigate = useNavigate()
 
-    console.log(product);
-
     useEffect(() => {
         const fetcheData = async () => {
             try {
@@ -78,7 +76,7 @@ function ProductsList() {
                                 <td className="border-2">{product.createdAt}</td>
 
                                 <td className="border-2">
-                                    <Link to={`/edit/${product.id}`}>
+                                    <Link to={`/editProduct/${product.id}`}>
                                         {" "}
                                         <button
                                             type="button"

@@ -1,31 +1,42 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 
-function Add() {
-    const [inputData, setInputData] = useState({ name: "", brand: "", category: "", price: "", description: "", imageFilename: "", createdAt: "" });
-    const navigate = useNavigate();
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await axios.get("http://localhost:3000/product");
-            const product = response.data;
-
-            const newId =
-                product.length > 0 ? (Math.max(...product.map((u) => u.id)) + 1).toString() : 1;
-            const newData = { ...inputData, id: newId };
-
-            axios.post("http://localhost:3000/product", newData);
-            alert("Data Added Successfully!");
-            navigate("/product");
-        } catch (error) {
-            console.log(error);
+function EditProduct() {
+    const params = useParams()
+    const id = params.id
+    const [inputData, setInputData] = useState({ id: "", name: "", brand: "", category: "", price: "", description: "", imageFilename: "", createdAt: "" });
+    const navigate = useNavigate()
+    useEffect(() => {
+        const fetcheData = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/product/" + id);
+                setInputData(response.data)
+            } catch (error) {
+                console.log(error)
+            }
         }
-    };
+        fetcheData()
+    }, [id])
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        try {
+            await axios.put(`http://localhost:3000/product/${id}`, inputData)
+            alert("Data uploaded successfully!");
+            navigate("/product")
+        } catch (error) {
+            console.error("Error updating data:", error)
+        }
+    }
     return (
-        <div className="flex w-full h-80 justify-center items-center mt-6">
+        <div className="flex w-full h-80 justify-center items-center mt-20">
             <form onSubmit={handleSubmit}>
-                <div className="w-80 h-96 border-1 bg-gray-300 p-5 flex flex-col justify-between">
+                <div className="w-80 h-[30rem] border-1 bg-gray-300 p-5 flex flex-col justify-between">
+                    <div className='flex flex-col'>
+                        <label htmlFor='Id'>Id:</label>
+                        <input disabled type='text' value={inputData.id} ></input>
+                    </div>
                     <div className="flex flex-col">
                         <label htmlFor="name">Name:</label>
                         <input
@@ -80,7 +91,7 @@ function Add() {
                 </div>
             </form>
         </div>
-    );
+    )
 }
 
-export default Add;
+export default EditProduct
